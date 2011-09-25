@@ -1,7 +1,2 @@
-require "less-rails/version"
+require "less/rails"
 
-module Less
-  module Rails
-    # Your code goes here...
-  end
-end

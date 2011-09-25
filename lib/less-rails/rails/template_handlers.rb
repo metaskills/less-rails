@@ -1,5 +1,6 @@
 module Less  
   module Rails
+    
     class LessTemplate < Tilt::LessTemplate
       
       def prepare
@@ -8,5 +9,6 @@ module Less
       end
       
     end
+    
   end
 end

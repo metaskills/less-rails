@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "less/rails/version"
+require "less-rails/rails/version"
 
 Gem::Specification.new do |s|
   s.name        = "less-rails"

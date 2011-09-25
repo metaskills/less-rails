@@ -7,18 +7,16 @@ Gem::Specification.new do |s|
   s.version     = Less::Rails::VERSION
   s.authors     = ["Ken Collins"]
   s.email       = ["ken@metaskills.net"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
-
-  s.rubyforge_project = "less-rails"
-
+  s.homepage    = "http://github.com/metaskills/less-rails"
+  s.summary     = %q{The dynamic stylesheet language for the Rails asset pipeline.}
+  s.description = %q{The dynamic stylesheet language for the Rails asset pipeline.}
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
-
-  # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
+  s.add_runtime_dependency 'less', '~> 2.0.7'
+  s.add_runtime_dependency 'railties',   '~> 3.1.0'
+  s.add_runtime_dependency 'actionpack', '~> 3.1.0'
+  # s.add_development_dependency 'minitest'
+  # s.add_development_dependency 'combustion', '~> 0.3.1'
 end

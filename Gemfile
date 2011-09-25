@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source :rubygems
 
-# Specify your gem's dependencies in less-rails.gemspec
 gemspec
+

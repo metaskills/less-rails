@@ -12,8 +12,13 @@ Until we can publish this gem under an official less-rails name, please bundle t
 
 ## Configuration
 
-This gem was made for other gems to properly hook into one place to provide paths to the Less::Parser. For example, the less-rails-bootstrap project at http://github.com/metaskills/less-rails-bootstrap
+This gem was made for other gems to properly hook into one place to provide paths to the Less::Parser. For example, the less-rails-bootstrap project at http://github.com/metaskills/less-rails-bootstrap and each project should do the path configuration for you. If you need to, you can configure less-rails with additional paths. These paths have higher priority than those from your applications assets load paths.
 
+```ruby
+MyProject::Application.configure do
+  config.less.paths << "#{Rails.root}/lib/less/stylesheets"
+end
+```
 
 ## License
 

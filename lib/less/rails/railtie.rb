@@ -8,7 +8,7 @@ module Less
       
       config.less = ActiveSupport::OrderedOptions.new
       
-      config.less.load_paths = []
+      config.less.paths = []
       
       config.before_initialize do |app|
         unless app.config.assets && app.config.assets.enabled

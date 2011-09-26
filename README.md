@@ -5,9 +5,9 @@ This gem provides integration for Rails projects using the Less stylesheet langu
 
 ## Installing
 
-Until we can publish this gem under an official less-rails name, please bundle to the git repo.
+Just bundle up less-rails in your Gemfile. This will pull in less as a runtime dependency too.
 
-    gem 'less-rails', :git => 'git://github.com/metaskills/less-rails.git'
+    gem 'less-rails'
 
 
 ## Configuration

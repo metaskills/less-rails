@@ -4,6 +4,5 @@ module Less
 end
 
 require 'less/rails/version'
-require 'less/rails/railtie'
 require 'less/rails/template_handlers'
-
+require 'less/rails/railtie'

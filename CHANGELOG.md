@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+2.0.1 (Sept 28, 2011)
+---------------------
+
+* Fix require of less/rails/railtie.rb. Thanks Benoit Bénézech (bbenezech).
+
+
 2.0.0 (Sept 25, 2011)
 ---------------------
 

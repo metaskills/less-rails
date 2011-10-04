@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+2.0.2 (unreleased)
+
+* New testing support with MiniTest::Spec and dummy Rails::Application.
+* New config.options hash passed down to the #to_css method.
+
+
 2.0.1 (Sept 28, 2011)
 ---------------------
 

@@ -17,6 +17,7 @@ This gem was made for other gems to properly hook into one place to provide path
 ```ruby
 MyProject::Application.configure do
   config.less.paths << "#{Rails.root}/lib/less/stylesheets"
+  config.less.options[:compress] = true
 end
 ```
 

@@ -1,6 +1,3 @@
-require 'tilt'
-require 'sprockets'
-
 module Less  
   module Rails
     
@@ -13,19 +10,26 @@ module Less
         @output ||= begin
           parser = ::Less::Parser.new less_parser_options(scope)
           engine = parser.parse(data)
-          engine.to_css
+          engine.to_css config_options(scope)
         end
       end
       
       protected
       
-      def less_options_from_rails(scope)
+      def config_paths(scope)
+        config_from_rails(scope)[:paths]
+      end
+      
+      def config_options(scope)
+        config_from_rails(scope)[:options] || {}
+      end
+      
+      def config_from_rails(scope)
         scope.environment.context_class.less_config
       end
 
       def less_parser_options(scope)
-        less_options = less_options_from_rails(scope)
-        paths = less_options[:paths] + scope.environment.paths
+        paths = config_paths(scope) + scope.environment.paths
         {:filename => eval_file, :line => line, :paths => paths}
       end
       

@@ -9,7 +9,7 @@ module Less
       config.less = ActiveSupport::OrderedOptions.new
       
       config.less.paths = []
-      config.less.options = {}
+      config.less.compress = false
       
       config.before_initialize do |app|
         unless app.config.assets && app.config.assets.enabled

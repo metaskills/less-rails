@@ -12,7 +12,7 @@ module Less
     class Spec < MiniTest::Spec
       
       before do
-        reset_conifg_options
+        reset_config_options
         reset_assets_cache
       end
       
@@ -35,9 +35,9 @@ module Less
         dummy_assets[name].to_s.strip
       end
       
-      def reset_conifg_options
+      def reset_config_options
         dummy_config.less.paths = []
-        dummy_config.less.options = {:compress => true}
+        dummy_config.less.compress = true
       end
       
       def reset_assets_cache

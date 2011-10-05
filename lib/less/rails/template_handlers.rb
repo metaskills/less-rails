@@ -3,6 +3,8 @@ module Less
     
     class LessTemplate < Tilt::LessTemplate
       
+      TO_CSS_KEYS = [:compress, :optimization, :silent, :color]
+      
       def prepare
       end
       
@@ -10,7 +12,7 @@ module Less
         @output ||= begin
           parser = ::Less::Parser.new less_parser_options(scope)
           engine = parser.parse(data)
-          engine.to_css config_options(scope)
+          engine.to_css config_to_css_options(scope)
         end
       end
       
@@ -20,8 +22,8 @@ module Less
         config_from_rails(scope)[:paths]
       end
       
-      def config_options(scope)
-        config_from_rails(scope)[:options] || {}
+      def config_to_css_options(scope)
+        Hash[config_from_rails(scope).each.to_a].slice *TO_CSS_KEYS
       end
       
       def config_from_rails(scope)

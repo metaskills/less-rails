@@ -20,5 +20,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'sprockets',  '~> 2.0.0'
   s.add_runtime_dependency 'tilt',       '~> 1.3.2'
   s.add_development_dependency 'minitest'
+  s.add_development_dependency 'guard-minitest'
   s.add_development_dependency 'rails',  '~> 3.1.0'
 end

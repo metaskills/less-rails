@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'spec_helper'
 
 class BasicsSpec < Less::Rails::Spec
   
@@ -7,5 +7,10 @@ class BasicsSpec < Less::Rails::Spec
   it 'must render variables' do
     basics.must_match %r{#test-variable\{color:#4d926f;\}}
   end
+  
+  it 'must render mixins' do
+    basics.must_match %r{#test-mixin span\{border:1px solid black;\}}
+  end
+
 
 end

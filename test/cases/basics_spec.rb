@@ -11,6 +11,6 @@ class BasicsSpec < Less::Rails::Spec
   it 'must render mixins' do
     basics.must_match %r{#test-mixin span\{border:1px solid black;\}}
   end
-
+  
 
 end

@@ -5,7 +5,7 @@ require 'less/rails'
 require 'minitest/spec'
 require 'minitest/autorun'
 require 'dummy_app/init'
-
+require 'sprockets/helpers/rails_helper'
 
 module Less
   module Rails

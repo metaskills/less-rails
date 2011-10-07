@@ -11,7 +11,7 @@ module Less
       config.less.paths = []
       config.less.compress = false
       
-      config.before_initialize do |app|
+      initializer 'less-rails.before-setup', :group => :all, :after => :bootstrap_hook do |app|
         unless app.config.assets && app.config.assets.enabled
           raise "The less-rails plugin requires the asset pipeline to be enabled."
         end
@@ -19,8 +19,8 @@ module Less
         Sprockets::Engines #force autoloading
         Sprockets.register_engine '.less', Less::Rails::LessTemplate
       end
-      
-      initializer 'less-rails.setup' do |app|
+
+      initializer 'less-rails.after-setup', :group => :all do |app|
         app.assets.context_class.extend(LessContext)
         app.assets.context_class.less_config = app.config.less
       end

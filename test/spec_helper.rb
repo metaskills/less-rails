@@ -5,7 +5,6 @@ require 'less/rails'
 require 'minitest/spec'
 require 'minitest/autorun'
 require 'dummy_app/init'
-require 'sprockets/helpers/rails_helper'
 
 module Less
   module Rails
@@ -41,7 +40,7 @@ module Less
       end
       
       def reset_assets_cache
-        dummy_assets.version = ActiveSupport::SecureRandom.hex(32)
+        dummy_assets.version = SecureRandom.hex(32)
         dummy_assets.cache = ActiveSupport::Cache::MemoryStore.new
       end
       

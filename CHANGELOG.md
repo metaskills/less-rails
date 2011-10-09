@@ -3,6 +3,7 @@ CHANGELOG
 
 2.0.2 (unreleased)
 
+* Extend LESS with Rails asset pipeline helpers.
 * New testing support with MiniTest::Spec and dummy Rails::Application.
 * New config.options hash passed down to the #to_css method.
 

@@ -1,2 +1,2 @@
-require "less/rails"
+require 'less/rails'
 

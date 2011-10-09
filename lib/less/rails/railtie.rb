@@ -20,7 +20,7 @@ module Less
         Sprockets.register_engine '.less', Less::Rails::LessTemplate
       end
       
-      initializer 'less-rails.setup' do |app|
+      initializer 'less-rails.environment' do |app|
         app.assets.context_class.extend(LessContext)
         app.assets.context_class.less_config = app.config.less
       end

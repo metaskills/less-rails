@@ -12,7 +12,7 @@ module Less
       
       before do
         reset_config_options
-        reset_assets_cache
+        reset_caches
       end
       
       
@@ -39,9 +39,9 @@ module Less
         dummy_config.less.compress = true
       end
       
-      def reset_assets_cache
+      def reset_caches
         dummy_assets.version = SecureRandom.hex(32)
-        dummy_assets.cache = ActiveSupport::Cache::MemoryStore.new
+        dummy_assets.cache.clear
       end
       
     end

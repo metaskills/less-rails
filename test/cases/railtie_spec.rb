@@ -16,7 +16,7 @@ class RailtieSpec < Less::Rails::Spec
       basic_compressed_match = /#test-variable\{color:#4d926f;\}/
       dummy_config.less.compress = true
       dummy_asset('basics').must_match basic_compressed_match
-      reset_assets_cache
+      reset_caches
       dummy_config.less.compress = false
       dummy_asset('basics').wont_match basic_compressed_match
     end

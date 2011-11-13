@@ -1,5 +1,6 @@
 module Less
   module Rails
+    autoload :LessTemplate, 'less/rails/template_handlers'
   end
 end
 
@@ -11,5 +12,4 @@ require 'sprockets/railtie'
 
 require 'less/rails/version'
 require 'less/rails/helpers'
-require 'less/rails/template_handlers'
 require 'less/rails/railtie'

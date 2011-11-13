@@ -3,11 +3,13 @@
 This gem provides integration for Rails projects using the Less stylesheet language in the asset pipeline.
 
 
+
 ## Installing
 
 Just bundle up less-rails in your Gemfile. This will pull in less as a runtime dependency too.
 
     gem 'less-rails'
+
 
 
 ## Configuration
@@ -19,6 +21,15 @@ MyProject::Application.configure do
   config.less.paths << "#{Rails.root}/lib/less/stylesheets"
   config.less.compress = true
 end
+```
+
+#### About Compression
+
+If you want less to compress your assets, for example in production, you can add this to your `config/environments/production.rb` file. However, this is not really needed as your assets should be compressed by sprockets, not less, using the rails default uglifier gem or something custom like the YUI gem. So as long as you just have `config.assets.compress = true` set in that file, your all good.
+
+```ruby
+# Not really needed!
+config.less.compress = true
 ```
 
 
@@ -52,6 +63,25 @@ asset-data-url("rails.png")       /* Becomes: url(data:image/png;base64,iVBORw0K
 ```
 
 Please note that these helpers are only available server-side, and something like ERB templates should be used if client-side rendering is desired.
+
+
+
+## Generators
+
+Installation of the gem will set your applications stylesheet engine to use Less. It is possible to have many gems that set the stylesheet engine, for instance the sass-rails and/or stylus gems. In this case, you can resolve the ambiguity by setting the stylesheet engine in your `config/application.rb` file like so. Doing so would mean all generated assets will be in the a fresh `css.less` template.
+
+```ruby
+config.app_generators.stylesheet_engine :less
+```
+
+We have generators for both assets and scaffold in the `less` namespace. For instance the following would generate a blank `app/assets/stylesheets/posts.css.less` template.
+
+```
+$ rails generate less:assets posts
+```
+
+We also have a generator for rails scaffold CSS. Just like the Sass gem, we simply parse the scaffold.css in the default rails generator and save it as a scaffolds.css.less file. This is done automatically during other scaffold generator actions.
+
 
 
 ## License

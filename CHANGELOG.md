@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.0.3 - (TBD)
+------------------
+* Add generator support. Fixes #8.
+
+
 2.0.2 - 10/09/2011
 ------------------
 * Extend LESS with Rails asset pipeline helpers.

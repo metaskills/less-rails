@@ -80,6 +80,14 @@ We also have a generator for rails scaffold CSS. Just like the Sass gem, we simp
 
 
 
+## Testing
+
+Simply just run `bundle install` and `bundle exec rake` and the tests will will. We also use Travis CI to run our tests too. Current build status is:
+
+[![Build Status](https://secure.travis-ci.org/metaskills/less-rails.png)](http://travis-ci.org/metaskills/less-rails)
+
+
+
 ## License
 
 Less::Rails is Copyright (c) 2011 Ken Collins, <ken@metaskills.net> and is distributed under the MIT license.

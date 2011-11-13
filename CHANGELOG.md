@@ -4,6 +4,7 @@ CHANGELOG
 2.0.3 - (TBD)
 ------------------
 * Add generator support. Fixes #8.
+* Add a Less::Rails::CssCompressor if config.assets.compress is true. Fixes #7.
 
 
 2.0.2 - 10/09/2011

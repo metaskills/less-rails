@@ -12,5 +12,8 @@ class BasicsSpec < Less::Rails::Spec
     basics.must_match %r{#test-mixin span\{border:1px solid black;\}}
   end
   
+  it 'must have a CSSCompressor' do
+    Less::Rails::CssCompressor.new.compress('.class {width: 1+1}').must_equal '.class{width:2;}'
+  end
 
 end

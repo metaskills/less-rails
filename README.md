@@ -25,12 +25,8 @@ end
 
 #### About Compression
 
-If you want less to compress your assets, for example in production, you can add this to your `config/environments/production.rb` file. However, this is not really needed as your assets should be compressed by sprockets, not less, using the rails default uglifier gem or something custom like the YUI gem. So as long as you just have `config.assets.compress = true` set in that file, your all good.
+If `config.assets.compress` is set to true, we will set the `config.assets.css_compressor` to `Less::Rails::CssCompressor.new` for you automatically. Feel free to set the `css_compressor` to something more stronger like `:yui` in your `config/environments/production.rb` file.
 
-```ruby
-# Not really needed!
-config.less.compress = true
-```
 
 
 ## Helpers

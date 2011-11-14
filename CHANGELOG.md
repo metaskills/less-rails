@@ -1,7 +1,7 @@
 CHANGELOG
 =========
 
-2.0.3 - (TBD)
+2.0.3 - 11/13/2011
 ------------------
 * Add generator support. Fixes #8.
 * Add a Less::Rails::CssCompressor if config.assets.compress is true. Fixes #7.

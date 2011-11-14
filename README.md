@@ -82,7 +82,7 @@ We also have a generator for rails scaffold CSS. Just like the Sass gem, we simp
 
 ## Testing
 
-Simply just run `bundle install` and `bundle exec rake` and the tests will will. We also use Travis CI to run our tests too. Current build status is:
+Simple! Just clone the repo, then run `bundle install` and `bundle exec rake`. The tests will begin to run. We also use Travis CI to run our tests too. Current build status is:
 
 [![Build Status](https://secure.travis-ci.org/metaskills/less-rails.png)](http://travis-ci.org/metaskills/less-rails)
 

@@ -15,7 +15,7 @@ class BasicsSpec < Less::Rails::Spec
   end
 
   it 'must hook into less import so that imported paths are declared as sprocket dependencies of the source file' do
-    flunk 'will need to use the basics asset, then change the frameworks/bootstrap/mixins.less file, then render basics again'
+    skip 'will need to use the basics asset, then change the frameworks/bootstrap/mixins.less file, then render basics again'
   end
 
   protected

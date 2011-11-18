@@ -12,7 +12,21 @@ module Less
   module Rails
 
     class Spec < MiniTest::Spec
-            
+      
+      include FileUtils
+      
+      class << self
+        
+        def dummy_app
+          Dummy::Application
+        end
+
+        def dummy_tmp
+          "#{dummy_app.root}/tmp"
+        end
+        
+      end
+      
       before do
         reset_config_options
         reset_caches
@@ -20,10 +34,8 @@ module Less
       
       protected
       
-      def dummy_app
-        Dummy::Application
-      end
-      
+      delegate :dummy_app, :dummy_tmp, :to => :'self.class'
+
       def dummy_config
         dummy_app.config
       end
@@ -51,26 +63,20 @@ module Less
     # Heavily inspired by Rails::Generators::TestCase.
     class GeneratorSpec < Spec
       
-      include FileUtils
-      
       class_attribute :destination_root, :current_path, :generator_class, :default_arguments
       delegate        :destination_root, :current_path, :generator_class, :default_arguments, :to => :'self.class'
       
       self.current_path      = File.expand_path(Dir.pwd)
       self.default_arguments = []
-      self.destination_root  = "#{Dummy::Application.root}/tmp"
+      self.destination_root  = "#{dummy_tmp}/destination_root"
       
-      before { destination_root_is_set? ; ensure_current_path ; prepare_destination ; no_color! ; setup_generator_class }
+      before { ensure_current_path ; prepare_destination ; no_color! ; setup_generator_class }
       after  { remove_destination ; ensure_current_path }
       
       protected
       
       def no_color!
         Thor::Base.shell = Thor::Shell::Basic
-      end
-      
-      def destination_root_is_set?
-        raise "You need to configure your Less::Rails::GeneratorSpec destination root." unless destination_root
       end
       
       def ensure_current_path

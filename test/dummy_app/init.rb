@@ -13,7 +13,7 @@ module Dummy
     config.consider_all_requests_local = true
     
     config.assets.enabled = true
-    config.assets.cache_store = config.cache_store
+    config.assets.cache_store = [:file_store, "#{config.root}/tmp/cache/assets/"]
     
   end
 end

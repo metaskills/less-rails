@@ -1,8 +1,10 @@
 CHANGELOG
 =========
 
-2.0.4 - 
+2.1.0 - 
 ------------------
+* Remove our basic CssCompressor since it can not handle real world general purpose JS
+  compression. Instead set parse compression and recommend final YUI Compressor. Fixes #7.
 * Import preprocessor so @import'ed less files are automatic asset dependencies. Fixes #3.
 
 

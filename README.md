@@ -25,7 +25,7 @@ end
 
 #### About Compression
 
-If `config.assets.compress` is set to true, we will set the `config.assets.css_compressor` to `Less::Rails::CssCompressor.new` for you automatically. Feel free to set the `css_compressor` to something more stronger like `:yui` in your `config/environments/production.rb` file.
+If `config.assets.compress` is set to true, we will set the `config.less.compress` to true as well. Less has real basic compression and it is recommended that you set the rails `config.assets.css_compressor` to something more stronger like `:yui` in your `config/environments/production.rb` file. Note, this requires the [yui-compressor](https://rubygems.org/gems/yui-compressor) gem but does an excellent job of compressing assets.
 
 
 

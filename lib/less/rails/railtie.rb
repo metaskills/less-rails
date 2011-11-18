@@ -29,9 +29,7 @@ module Less
       end
       
       initializer 'less-rails.setup_compression', :group => :all do |app|
-        if app.config.assets.compress
-          app.config.assets.css_compressor = CssCompressor.new
-        end
+        config.less.compress = app.config.assets.compress
       end
       
     end

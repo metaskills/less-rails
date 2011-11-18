@@ -34,6 +34,10 @@ class RailtieSpec < Less::Rails::Spec
       dummy_assets.context_class.less_config.must_equal dummy_config.less
     end
     
+    it 'must register our import pre processor' do
+      dummy_assets.preprocessors['text/css'].must_include Less::Rails::ImportProcessor
+    end
+    
   end
 
 

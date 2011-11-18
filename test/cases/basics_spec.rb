@@ -15,7 +15,12 @@ class BasicsSpec < Less::Rails::Spec
   end
 
   it 'must hook into less import so that imported paths are declared as sprocket dependencies of the source file' do
-    skip 'will need to use the basics asset, then change the frameworks/bootstrap/mixins.less file, then render basics again'
+    basics.must_match %r{#test-radiused\{border-radius:5px;\}}, 'default is 5px'
+    safely_edit_mixins do |d|
+      d.gsub! '5px', '10px'
+      File.open(mixins_asset.pathname,'w') { |f| f.write(d) }
+      basics.must_match %r{#test-radiused\{border-radius:10px;\}}, 'mixins.less should be a sprockets context dependency'
+    end
   end
 
   protected
@@ -24,4 +29,16 @@ class BasicsSpec < Less::Rails::Spec
     dummy_asset 'basics'
   end
   
+  def mixins_asset
+    dummy_assets['frameworks/bootstrap/mixins.less']
+  end
+  
+  def safely_edit_mixins
+    data = File.read(mixins_asset.pathname)
+    begin
+      yield data.dup
+    ensure
+      File.open(mixins_asset.pathname,'w') { |f| f.write(data) }
+    end
+  end
 end

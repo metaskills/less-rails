@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.0.4 - 
+------------------
+* Import preprocessor so @import'ed less files are automatic asset dependencies. Fixes #3.
+
+
 2.0.3 - 11/13/2011
 ------------------
 * Add generator support. Fixes #8.

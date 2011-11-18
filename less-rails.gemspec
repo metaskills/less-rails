@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = ["ken@metaskills.net"]
   s.homepage    = "http://github.com/metaskills/less-rails"
   s.summary     = %q{The dynamic stylesheet language for the Rails asset pipeline.}
-  s.description = %q{The dynamic stylesheet language for the Rails asset pipeline.}
+  s.description = %q{The dynamic stylesheet language for the Rails asset pipeline. Allows other gems to extend Less load path.}
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }

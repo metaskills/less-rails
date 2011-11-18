@@ -28,6 +28,7 @@ module Less
       end
       
       before do
+        prepare_cache_dir
         reset_config_options
         reset_caches
       end
@@ -56,6 +57,10 @@ module Less
       def reset_caches
         dummy_assets.version = SecureRandom.hex(32)
         dummy_assets.cache.clear
+      end
+      
+      def prepare_cache_dir
+        mkdir_p "#{dummy_tmp}/cache/assets"
       end
       
     end

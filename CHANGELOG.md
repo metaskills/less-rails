@@ -1,7 +1,7 @@
 CHANGELOG
 =========
 
-2.1.0 - 
+2.1.0 - 11/18/2011
 ------------------
 * Remove our basic CssCompressor since it can not handle real world general purpose JS
   compression. Instead set parse compression and recommend final YUI Compressor. Fixes #7.

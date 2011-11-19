@@ -29,6 +29,30 @@ If `config.assets.compress` is set to true, we will set the `config.less.compres
 
 
 
+## Import Hooks
+
+Any `@import` to a `.less` file will automatically declare that file as a sprockets dependency to the file importing it. This means that you can edit imported framework files and see changes reflected in the parent durning development. So this:
+
+```css
+@import "frameworks/bootstrap/mixins";
+
+#leftnav { .border-radius(5px); }
+```
+
+Will end up acting as if you had done this below:
+
+```css
+/*
+ *= depend_on "frameworks/bootstrap/mixins.less"
+*/
+
+@import "frameworks/bootstrap/mixins";
+
+#leftnav { .border-radius(5px); }
+```
+
+
+
 ## Helpers
 
 When referencing assets use the following helpers in LESS.

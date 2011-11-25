@@ -50,7 +50,6 @@ module Less
       end
       
       def reset_config_options
-        dummy_config.less.paths = []
         dummy_config.less.compress = true
       end
       

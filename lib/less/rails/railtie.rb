@@ -18,14 +18,21 @@ module Less
         Sprockets.register_engine '.less', Less::Rails::LessTemplate
       end
       
-      initializer 'less-rails.before.load_config_initializers', :before => 'load_config_initializers', :group => :all do |app|
+      initializer 'less-rails.before.load_config_initializers', :before => :load_config_initializers, :group => :all do |app|
         raise 'The less-rails plugin requires the asset pipeline to be enabled.' unless app.config.assets.enabled
         app.assets.register_preprocessor 'text/css', ImportProcessor
       end
       
-      initializer 'less-rails.after.load_config_initializers', :after => 'load_config_initializers', :group => :all do |app|
+      initializer 'less-rails.after.load_config_initializers', :after => :load_config_initializers, :group => :all do |app|
         app.assets.context_class.extend(LessContext)
         app.assets.context_class.less_config = app.config.less
+      end
+      
+      initializer 'less-rails.after.append_assets_path', :after => :append_assets_path, :group => :all do |app|
+        # raise paths["app/assets"].existent_directories.inspect
+        # raise app.config.assets.paths.inspect
+        assets_stylesheet_paths = app.config.assets.paths.select { |p| p.ends_with?('stylesheets') }
+        app.config.less.paths.unshift(*assets_stylesheet_paths)
       end
       
       initializer 'less-rails.setup_compression', :group => :all do |app|

@@ -8,8 +8,8 @@ class RailtieSpec < Less::Rails::Spec
       dummy_config.less.must_be_instance_of ActiveSupport::OrderedOptions
     end
     
-    it 'must have an empty array for paths' do
-      dummy_config.less.paths.must_equal Array.new
+    it 'must have an array for paths' do
+      dummy_config.less.paths.must_be_kind_of Array
     end
     
     it 'must have an options hash passed down to the #to_css method' do
@@ -36,6 +36,10 @@ class RailtieSpec < Less::Rails::Spec
     
     it 'must register our import pre processor' do
       dummy_assets.preprocessors['text/css'].must_include Less::Rails::ImportProcessor
+    end
+    
+    it 'must include the asset pipelines stylesheet paths to less paths' do
+      dummy_app.config.less.paths.must_include "#{dummy_app.root}/app/assets/stylesheets"
     end
     
   end

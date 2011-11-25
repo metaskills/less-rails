@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+2.1.1 - 11/24/2011
+------------------
+
+* All app asset stylesheet paths are added to less paths.
+
+
 2.1.0 - 11/18/2011
 ------------------
 * Remove our basic CssCompressor since it can not handle real world general purpose JS

@@ -1,6 +1,4 @@
-source :rubygems
-
-gemspec
+eval File.read('Gemfile.rails-3.1')
 
 group :test do
   if RUBY_PLATFORM =~ /darwin/

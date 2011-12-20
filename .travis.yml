@@ -3,3 +3,6 @@ rvm:
   - 1.9.2
   - 1.9.3
   - ree
+gemfile:
+  - Gemfile.rails-3.1
+  - Gemfile.rails-3.2

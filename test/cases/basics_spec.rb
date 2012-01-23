@@ -9,6 +9,10 @@ class BasicsSpec < Less::Rails::Spec
   it 'must render mixins' do
     basics.must_match %r{#test-mixin span\{border:1px solid black;\}}
   end
+  
+  it 'must be able to use vendored less files' do
+    basics.must_match %r{#test-vendored\{border-radius:10px;\}}
+  end
 
   it 'must hook into less import so that imported paths are declared as sprocket dependencies of the source file' do
     basics.must_match %r{#test-radiused\{border-radius:5px;\}}, 'default is 5px'

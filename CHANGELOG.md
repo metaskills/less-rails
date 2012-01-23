@@ -1,9 +1,14 @@
 CHANGELOG
 =========
 
-2.1.2 - 01/23/2012
+2.1.3 - 01/23/2012
 
 * Make sure vendor/assets/stylesheets .less files work.
+
+
+2.1.2 - 12/20/2011
+
+* No notes.
 
 
 2.1.1 - 11/24/2011

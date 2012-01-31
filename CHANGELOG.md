@@ -1,7 +1,7 @@
 CHANGELOG
 =========
 
-2.1.4 - =01/31/2012
+2.1.4, 2.1.5 - =01/31/2012
 
 * More friendly import processor with missing files. Fixes #13.
 

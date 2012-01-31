@@ -12,7 +12,7 @@ module Less
         import_paths.each do |path|
           pathname = begin
                        context.resolve(path)
-                     rescue FileNotFound
+                     rescue Sprockets::FileNotFound
                        nil
                      end
           context.depend_on(path) if pathname && pathname.to_s.ends_with?('.less')

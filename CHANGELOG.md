@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.1.4 - =01/31/2012
+
+* More friendly import processor with missing files. Fixes #13.
+
+
 2.1.3 - 01/23/2012
 
 * Make sure vendor/assets/stylesheets .less files work.

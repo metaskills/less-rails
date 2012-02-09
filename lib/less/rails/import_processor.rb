@@ -7,7 +7,7 @@ module Less
       def prepare
       end
       
-      def evaluate(context, locals, &block)
+      def depend_on context, data
         import_paths = data.scan(IMPORT_SCANNER).flatten.compact.uniq
         import_paths.each do |path|
           pathname = begin
@@ -15,8 +15,18 @@ module Less
                      rescue Sprockets::FileNotFound
                        nil
                      end
+
           context.depend_on(path) if pathname && pathname.to_s.ends_with?('.less')
+
+          if pathname
+            data = File.read pathname
+            depend_on context, data
+          end
         end
+      end
+
+      def evaluate(context, locals, &block)
+        depend_on context, data
         data
       end
       

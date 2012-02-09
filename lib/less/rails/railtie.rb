@@ -30,6 +30,7 @@ module Less
       
       initializer 'less-rails.after.append_assets_path', :after => :append_assets_path, :group => :all do |app|
         assets_stylesheet_paths = app.config.assets.paths.select { |p| p.ends_with?('stylesheets') }
+        app.config.assets.paths+=app.config.less.paths
         app.config.less.paths.unshift(*assets_stylesheet_paths)
       end
       

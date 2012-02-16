@@ -13,14 +13,27 @@ class BasicsSpec < Less::Rails::Spec
   it 'must be able to use vendored less files' do
     basics.must_match %r{#test-vendored\{border-radius:10px;\}}
   end
-
-  it 'must hook into less import so that imported paths are declared as sprocket dependencies of the source file' do
-    basics.must_match %r{#test-radiused\{border-radius:5px;\}}, 'default is 5px'
-    safely_edit_mixins do |d|
-      d.gsub! '5px', '10px'
-      File.open(mixins_asset.pathname,'w') { |f| f.write(d) }
-      basics.must_match %r{#test-radiused\{border-radius:10px;\}}, 'mixins.less should be a sprockets context dependency'
+  
+  describe 'less import dependency hooks' do
+    
+    it 'must update when imported file changes' do
+      basics.must_match %r{#test-radiused\{border-radius:5px;\}}, 'default is 5px'
+      safely_edit(:mixins) do |data, asset|
+        data.gsub! '5px', '10px'
+        File.open(asset.pathname,'w') { |f| f.write(data) }
+        basics.must_match %r{#test-radiused\{border-radius:10px;\}}, 'mixins.less should be a sprockets context dependency'
+      end
     end
+    
+    it 'must update when an imported file of another imported file changes' do
+      basics.must_match %r{#test-variable-colored\{color:#424242;\}}, 'default is #424242'
+      safely_edit(:variables) do |data, asset|
+        data.gsub! '424242', '666666'
+        File.open(asset.pathname,'w') { |f| f.write(data) }
+        basics.must_match %r{#test-variable-colored\{color:#666666;\}}, 'variables.less should be a sprockets context dependency'
+      end
+    end
+    
   end
 
   protected
@@ -33,12 +46,17 @@ class BasicsSpec < Less::Rails::Spec
     dummy_assets['frameworks/bootstrap/mixins.less']
   end
   
-  def safely_edit_mixins
-    data = File.read(mixins_asset.pathname)
+  def variables_asset
+    dummy_assets['frameworks/bootstrap/variables.less']
+  end
+  
+  def safely_edit(name)
+    asset = send :"#{name}_asset"
+    data = File.read(asset.pathname)
     begin
-      yield data.dup
+      yield data.dup, asset
     ensure
-      File.open(mixins_asset.pathname,'w') { |f| f.write(data) }
+      File.open(asset.pathname,'w') { |f| f.write(data) }
     end
   end
 end

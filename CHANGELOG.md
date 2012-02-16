@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.1.4 - (unreleased)
+
+* Nested imports recursively declare sprockets dependencies. Fixes #26.
+
+
 2.1.3 - 01/23/2012
 
 * Make sure vendor/assets/stylesheets .less files work.

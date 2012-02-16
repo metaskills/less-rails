@@ -1,17 +1,16 @@
 
 // Variables
-
 @color: #4D926F;
 #test-variable { color: @color; }
 
 // Mixins
-
 .bordered { border: 1px solid black; }
 #test-mixin span { .bordered; }
 
 // Frameworks
 @import "frameworks/bootstrap/mixins";
 #test-radiused { .radiused; }
+#test-variable-colored { .variableColored; }
 
 // Vendored
 @import "vendored";

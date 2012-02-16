@@ -1,9 +1,14 @@
 CHANGELOG
 =========
 
-2.1.4 - (unreleased)
+2.1.6 - (unreleased)
 
 * Nested imports recursively declare sprockets dependencies. Fixes #26.
+
+
+2.1.4, 2.1.5 - 01/31/2012
+
+* More friendly import processor with missing files. Fixes #13.
 
 
 2.1.3 - 01/23/2012

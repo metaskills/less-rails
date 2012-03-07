@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.1.7 - 03/07/2012
+
+* More defensive railtie when examing asset paths. Fixes #30.
+
+
 2.1.6 - 02/16/2012
 
 * Nested imports recursively declare sprockets dependencies. Fixes #26.

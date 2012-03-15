@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.1.8 - 03/15/2012
+
+* Work with edge rails/sprockets. Fixes #31.
+
+
 2.1.7 - 03/07/2012
 
 * More defensive railtie when examing asset paths. Fixes #30.

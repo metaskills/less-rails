@@ -7,7 +7,11 @@ require 'less'
 require 'rails'
 require 'tilt'
 require 'sprockets'
-require 'sprockets/railtie'
+begin
+ require 'sprockets/railtie'
+rescue LoadError
+ require 'sprockets/rails/railtie'
+end
 
 require 'less/rails/version'
 require 'less/rails/helpers'

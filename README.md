@@ -70,8 +70,8 @@ As a convenience, for each of the following asset classes there are correspondin
 ```css
 image-url("rails.png")            /* Becomes: url(/assets/rails.png) */
 font-url("rails.ttf")             /* Becomes: url(/assets/rails.ttf) */
-video-url("rails.ttf")            /* Becomes: url(/videos/rails.mp4) */
-audio-url("rails.ttf")            /* Becomes: url(/audios/rails.mp3) */
+video-url("rails.mp4")            /* Becomes: url(/videos/rails.mp4) */
+audio-url("rails.mp3")            /* Becomes: url(/audios/rails.mp3) */
 javascript-url("rails.js")        /* Becomes: url(/assets/rails.js) */
 stylesheet-url("rails.css")       /* Becomes: url(/assets/rails.css) */
 ```

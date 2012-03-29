@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.2.0 - 03/29/2012
+
+* Upgrade to therubyracer 0.10.x call semantics. Fixes #34.
+
+
 2.1.8 - 03/15/2012
 
 * Work with edge rails/sprockets. Fixes #31.

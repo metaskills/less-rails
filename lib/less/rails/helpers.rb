@@ -6,7 +6,7 @@ module Less
   
   def self.register_rails_helper(name, &block)
     tree = @loader.require('less/tree')
-    tree.functions[name] = lambda do |node|
+    tree.functions[name] = lambda do |this, node|
       tree[:Anonymous].new block.call(tree, node)
     end
   end

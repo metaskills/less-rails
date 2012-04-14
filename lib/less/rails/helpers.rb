@@ -6,8 +6,10 @@ module Less
   
   def self.register_rails_helper(name, &block)
     tree = @loader.require('less/tree')
-    tree.functions[name] = lambda do |this, node|
-      tree[:Anonymous].new block.call(tree, node)
+    tree.functions[name] = lambda do |*args|
+      # args: (this, node) v8 >= 0.10, otherwise (node)
+      raise ArgumentError, "missing node" if args.empty?
+      tree[:Anonymous].new block.call(tree, args.last)
     end
   end
   

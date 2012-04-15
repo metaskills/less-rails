@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.2.1 - 04/15/2012
+
+* Make it usable with therubyrhino (and older versions of therubyracer as well). Fixes #36.
+
+
 2.2.0 - 03/29/2012
 
 * Upgrade to therubyracer 0.10.x call semantics. Fixes #34.

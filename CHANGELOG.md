@@ -1,8 +1,12 @@
 CHANGELOG
 =========
 
+2.2.2 - 04/25/2012
+
 * Remove explicit dependency on therubyracer
 * Add jruby and jruby --1.9 to travis configuration
+* Officially support JRuby
+
 
 2.2.1 - 04/15/2012
 

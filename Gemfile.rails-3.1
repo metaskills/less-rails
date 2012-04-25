@@ -1,9 +1,3 @@
-source :rubygems
-
-spec = eval File.read('less-rails.gemspec')
-deps = spec.dependencies.map { |dep| {:name => dep.name, :version => dep.requirement.to_s} }
-
-deps.reject! { |dep| dep[:name] =~ /actionpack|rails/ }
-deps.each    { |dep| gem dep[:name], dep[:version] }
+eval File.read 'Gemfile.common'
 
 gem 'rails', '~> 3.1.3'

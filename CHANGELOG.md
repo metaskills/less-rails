@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+* Remove explicit dependency on therubyracer
+* Add jruby and jruby --1.9 to travis configuration
+
 2.2.1 - 04/15/2012
 
 * Make it usable with therubyrhino (and older versions of therubyracer as well). Fixes #36.

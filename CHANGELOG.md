@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.2.3 - 05/27/2012
+
+* Add default_mime_type to template class since it does not inherit from Tilt's.
+  Should fix https://github.com/metaskills/less-rails/issues/35
+
 2.2.2 - 04/25/2012
 
 * Remove explicit dependency on therubyracer

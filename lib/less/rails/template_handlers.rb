@@ -2,6 +2,8 @@ module Less
   module Rails    
     class LessTemplate < Tilt::LessTemplate
       
+      self.default_mime_type = 'text/css'
+      
       include Helpers
       
       TO_CSS_KEYS = [:compress, :optimization, :silent, :color]

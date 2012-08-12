@@ -8,12 +8,16 @@ This gem provides integration for Rails projects using the Less stylesheet langu
 
 Just bundle up less-rails in your Gemfile. This will pull in less as a runtime dependency too.
 
-    gem 'less-rails'
+```ruby
+gem 'less-rails'
+```
 
 But be warned, less.rb relies on a JavaScript runtime gem too. Just like ExecJS, it will look for a gem that is appropriate to your system. Typically, this means you will need one of the following.
 
-    gem 'therubyracer' # Ruby
-    gem 'therubyrhino' # JRuby
+```ruby
+gem 'therubyracer' # Ruby
+gem 'therubyrhino' # JRuby
+```
 
 
 ## Configuration

@@ -10,6 +10,10 @@ Just bundle up less-rails in your Gemfile. This will pull in less as a runtime d
 
     gem 'less-rails'
 
+But be warned, less.rb relies on a JavaScript runtime gem too. Just like ExecJS, it will look for a gem that is appropriate to your system. Typically, this means you will need one of the following.
+
+    gem 'therubyracer' # Ruby
+    gem 'therubyrhino' # JRuby
 
 
 ## Configuration

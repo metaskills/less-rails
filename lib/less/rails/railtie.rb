@@ -20,7 +20,7 @@ module Less
       
       initializer 'less-rails.before.load_config_initializers', :before => :load_config_initializers, :group => :all do |app|
         raise 'The less-rails plugin requires the asset pipeline to be enabled.' unless app.config.assets.enabled
-        app.assets.register_preprocessor 'text/css', ImportProcessor
+        (Sprockets.respond_to?('register_preprocessor') ? Sprockets : app.assets).register_preprocessor 'text/css', ImportProcessor
       end
       
       initializer 'less-rails.after.load_config_initializers', :after => :load_config_initializers, :group => :all do |app|

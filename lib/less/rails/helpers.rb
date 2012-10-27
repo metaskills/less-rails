@@ -98,7 +98,11 @@ module Less
         end
         
         def public_path(asset)
-          scope.asset_paths.compute_public_path asset, ::Rails.application.config.assets.prefix
+          if scope.respond_to?(:asset_paths)
+            scope.asset_paths.compute_public_path asset, ::Rails.application.config.assets.prefix
+          else
+            scope.path_to_asset(asset)
+          end
         end
         
         def context_asset_data_uri(path)

@@ -55,7 +55,13 @@ module Less
       
       def reset_caches
         dummy_assets.version = SecureRandom.hex(32)
-        dummy_assets.cache.clear
+        cache = dummy_assets.cache
+        if cache.is_a? Sprockets::Cache::FileStore
+          path = cache.instance_variable_get(:@root)
+          cache = Sprockets::Cache::FileStore.new(path)
+        else
+          cache.clear
+        end
       end
       
       def prepare_cache_dir

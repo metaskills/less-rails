@@ -15,12 +15,21 @@ class HelpersSpec < Less::Rails::Spec
     line_for_helper('video-url').must_equal   "video-url: url(/videos/rails.mp4);"
     line_for_helper('audio-path').must_equal  'audio-path: "/audios/rails.mp3";'
     line_for_helper('audio-url').must_equal   "audio-url: url(/audios/rails.mp3);"
-    line_for_helper('javascript-path').must_equal  'javascript-path: "/assets/rails.js";'
-    line_for_helper('javascript-url').must_equal   "javascript-url: url(/assets/rails.js);"
-    line_for_helper('stylesheet-path').must_equal  'stylesheet-path: "/assets/rails.css";'
-    line_for_helper('stylesheet-url').must_equal   "stylesheet-url: url(/assets/rails.css);"
-    line_for_helper('font-path').must_equal  'font-path: "/assets/rails.ttf";'
-    line_for_helper('font-url').must_equal   "font-url: url(/assets/rails.ttf);"
+    if Rails::VERSION::MAJOR < 4
+      line_for_helper('javascript-path').must_equal  'javascript-path: "/assets/rails.js";'
+      line_for_helper('javascript-url').must_equal   "javascript-url: url(/assets/rails.js);"
+      line_for_helper('stylesheet-path').must_equal  'stylesheet-path: "/assets/rails.css";'
+      line_for_helper('stylesheet-url').must_equal   "stylesheet-url: url(/assets/rails.css);"
+      line_for_helper('font-path').must_equal  'font-path: "/assets/rails.ttf";'
+      line_for_helper('font-url').must_equal   "font-url: url(/assets/rails.ttf);"
+    else
+      line_for_helper('javascript-path').must_equal  'javascript-path: "/javascripts/rails.js";'
+      line_for_helper('javascript-url').must_equal   "javascript-url: url(/javascripts/rails.js);"
+      line_for_helper('stylesheet-path').must_equal  'stylesheet-path: "/stylesheets/rails.css";'
+      line_for_helper('stylesheet-url').must_equal   "stylesheet-url: url(/stylesheets/rails.css);"
+      line_for_helper('font-path').must_equal  'font-path: "/fonts/rails.ttf";'
+      line_for_helper('font-url').must_equal   "font-url: url(/fonts/rails.ttf);"
+    end
   end
   
   it 'parses data urls ' do

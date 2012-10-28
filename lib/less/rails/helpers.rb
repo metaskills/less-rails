@@ -31,8 +31,8 @@ module Less
         Less.register_rails_helper('javascript-url')  { |tree, cxt| javascript_url   unquote(cxt.toCSS()) }
         Less.register_rails_helper('stylesheet-path') { |tree, cxt| stylesheet_path  unquote(cxt.toCSS()) }
         Less.register_rails_helper('stylesheet-url')  { |tree, cxt| stylesheet_url   unquote(cxt.toCSS()) }
-        Less.register_rails_helper('font-path')       { |tree, cxt| asset_path       unquote(cxt.toCSS()) }
-        Less.register_rails_helper('font-url')        { |tree, cxt| asset_url        unquote(cxt.toCSS()) }
+        Less.register_rails_helper('font-path')       { |tree, cxt| font_path       unquote(cxt.toCSS()) }
+        Less.register_rails_helper('font-url')        { |tree, cxt| font_url        unquote(cxt.toCSS()) }
         Less.register_rails_helper('asset-data-url')  { |tree, cxt| asset_data_url   unquote(cxt.toCSS()) }
       end
       
@@ -89,7 +89,22 @@ module Less
         def stylesheet_url(stylesheet)
           "url(#{scope.stylesheet_path(stylesheet)})"
         end
+
+        def font_path(font)
+          if scope.respond_to?(:font_path)
+            scope.font_path(font).inspect
+          else
+            asset_path(font)
+          end
+        end
         
+        def font_url(font)
+          if scope.respond_to?(:font_path)
+            "url(#{scope.font_path(font)})"
+          else
+            asset_url(font)
+          end
+        end
         
         private
         

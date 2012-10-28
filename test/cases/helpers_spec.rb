@@ -20,15 +20,15 @@ class HelpersSpec < Less::Rails::Spec
       line_for_helper('javascript-url').must_equal   "javascript-url: url(/assets/rails.js);"
       line_for_helper('stylesheet-path').must_equal  'stylesheet-path: "/assets/rails.css";'
       line_for_helper('stylesheet-url').must_equal   "stylesheet-url: url(/assets/rails.css);"
-      line_for_helper('font-path').must_equal  'font-path: "/assets/rails.ttf";'
-      line_for_helper('font-url').must_equal   "font-url: url(/assets/rails.ttf);"
+      line_for_helper('font-path').must_equal        'font-path: "/assets/rails.ttf";'
+      line_for_helper('font-url').must_equal         "font-url: url(/assets/rails.ttf);"
     else
       line_for_helper('javascript-path').must_equal  'javascript-path: "/javascripts/rails.js";'
       line_for_helper('javascript-url').must_equal   "javascript-url: url(/javascripts/rails.js);"
       line_for_helper('stylesheet-path').must_equal  'stylesheet-path: "/stylesheets/rails.css";'
       line_for_helper('stylesheet-url').must_equal   "stylesheet-url: url(/stylesheets/rails.css);"
-      line_for_helper('font-path').must_equal  'font-path: "/fonts/rails.ttf";'
-      line_for_helper('font-url').must_equal   "font-url: url(/fonts/rails.ttf);"
+      line_for_helper('font-path').must_equal        'font-path: "/fonts/rails.ttf";'
+      line_for_helper('font-url').must_equal         "font-url: url(/fonts/rails.ttf);"
     end
   end
   

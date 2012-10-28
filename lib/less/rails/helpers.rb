@@ -31,8 +31,8 @@ module Less
         Less.register_rails_helper('javascript-url')  { |tree, cxt| javascript_url   unquote(cxt.toCSS()) }
         Less.register_rails_helper('stylesheet-path') { |tree, cxt| stylesheet_path  unquote(cxt.toCSS()) }
         Less.register_rails_helper('stylesheet-url')  { |tree, cxt| stylesheet_url   unquote(cxt.toCSS()) }
-        Less.register_rails_helper('font-path')       { |tree, cxt| font_path       unquote(cxt.toCSS()) }
-        Less.register_rails_helper('font-url')        { |tree, cxt| font_url        unquote(cxt.toCSS()) }
+        Less.register_rails_helper('font-path')       { |tree, cxt| font_path        unquote(cxt.toCSS()) }
+        Less.register_rails_helper('font-url')        { |tree, cxt| font_url         unquote(cxt.toCSS()) }
         Less.register_rails_helper('asset-data-url')  { |tree, cxt| asset_data_url   unquote(cxt.toCSS()) }
       end
       

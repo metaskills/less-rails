@@ -10,3 +10,4 @@ before_install:
 gemfile:
   - Gemfile.rails-3.1
   - Gemfile.rails-3.2
+  - Gemfile.rails-edge

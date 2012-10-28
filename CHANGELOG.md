@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.2.5 - 10/28/2012
+
+* Real Rails 4 compatability thanks to @yalab
+
+
 2.2.4 - 10/20/2012
 
 * Rails 4 compatability with Sprockets vs app.assets.

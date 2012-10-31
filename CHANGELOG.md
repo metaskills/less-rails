@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.2.6 - 10/31/2012
+
+* Accidental release. Nothing new.
+
+
 2.2.5 - 10/28/2012
 
 * Real Rails 4 compatability thanks to @yalab

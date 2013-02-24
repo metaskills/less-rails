@@ -112,12 +112,21 @@ We also have a generator for rails scaffold CSS. Just like the Sass gem, we simp
 
 
 
-## Testing
+## Contributing
 
-Simple! Just clone the repo, then run `bundle install` and `bundle exec rake`. The tests will begin to run. We also use Travis CI to run our tests too. Current build status is:
+This gem is fully tested from Rails 3.1 to 4. We run our tests on [Travis CI](http://travis-ci.org/metaskills/less-rails) in both Ruby 1.8 and 1.9, 2.0, and jruby 1.8 and 1.9 mode. If you detect a problem, open up a github issue or fork the repo and help out. After you fork or clone the repository, the following commands will get you up and running on the test suite. 
 
-[![Build Status](https://secure.travis-ci.org/metaskills/less-rails.png)](http://travis-ci.org/metaskills/less-rails)
+```shell
+$ bundle install
+$ bundle exec rake appraisal:setup
+$ bundle exec rake appraisal test
+```
 
+We use the [appraisal](https://github.com/thoughtbot/appraisal) gem from Thoughtbot to help us generate the individual gemfiles for each Rails version and to run the tests locally against each generated Gemfile. The `rake appraisal test` command actually runs our test suite against all Rails versions in our `Appraisal` file. If you want to run the tests for a specific Rails version, use `rake -T` for a list. For example, the following command will run the tests for Rails 3.2 only.
+
+```shell
+$ bundle exec rake appraisal:rails32 test
+```
 
 
 ## License

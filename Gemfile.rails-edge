@@ -1,7 +1,0 @@
-eval File.read 'Gemfile.common'
-
-gem 'rails',           :github => 'rails/rails'
-gem 'journey',         :github => 'rails/journey'
-gem 'arel',            :github => 'rails/arel'
-gem 'sprockets-rails', :github => 'rails/sprockets-rails'
-gem 'activerecord-deprecated_finders', :github => 'rails/activerecord-deprecated_finders'

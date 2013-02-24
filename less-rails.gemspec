@@ -2,21 +2,22 @@
 $:.push File.expand_path("../lib", __FILE__)
 require "less/rails/version"
 
-Gem::Specification.new do |s|
-  s.name        = "less-rails"
-  s.version     = Less::Rails::VERSION
-  s.authors     = ["Ken Collins"]
-  s.email       = ["ken@metaskills.net"]
-  s.homepage    = "http://github.com/metaskills/less-rails"
-  s.summary     = %q{The dynamic stylesheet language for the Rails asset pipeline.}
-  s.description = %q{The dynamic stylesheet language for the Rails asset pipeline. Allows other gems to extend Less load path.}
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
-  s.add_runtime_dependency 'less', '~> 2.2.0'
-  s.add_runtime_dependency 'actionpack', '>= 3.1'
-  s.add_development_dependency 'minitest'
-  s.add_development_dependency 'guard-minitest'
-  s.add_development_dependency 'rails',  '~> 3.1'
+Gem::Specification.new do |gem|
+  gem.name        = "less-rails"
+  gem.version     = Less::Rails::VERSION
+  gem.authors     = ["Ken Collins"]
+  gem.email       = ["ken@metaskills.net"]
+  gem.homepage    = "http://github.com/metaskills/less-rails"
+  gem.summary     = %q{The dynamic stylesheet language for the Rails asset pipeline.}
+  gem.description = %q{The dynamic stylesheet language for the Rails asset pipeline. Allows other gems to extend Less load path.}
+  gem.files         = `git ls-files`.split("\n")
+  gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  gem.require_paths = ["lib"]
+  gem.add_runtime_dependency 'less', '~> 2.2.0'
+  gem.add_runtime_dependency 'actionpack', '>= 3.1'
+  gem.add_development_dependency 'appraisal'
+  gem.add_development_dependency 'minitest'
+  gem.add_development_dependency 'guard-minitest'
+  gem.add_development_dependency 'rails'
 end

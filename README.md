@@ -2,6 +2,7 @@
 
 This gem provides integration for Rails projects using the Less stylesheet language in the asset pipeline.
 
+[![Build Status](https://secure.travis-ci.org/metaskills/minitest-spec-rails.png)](http://travis-ci.org/metaskills/less-rails)
 
 
 ## Installing
@@ -128,8 +129,11 @@ We use the [appraisal](https://github.com/thoughtbot/appraisal) gem from Thought
 $ bundle exec rake appraisal:rails32 test
 ```
 
+Our current build status is:
+[![Build Status](https://secure.travis-ci.org/metaskills/minitest-spec-rails.png)](http://travis-ci.org/metaskills/less-rails)
+
 
 ## License
 
-Less::Rails is Copyright (c) 2011 Ken Collins, <ken@metaskills.net> and is distributed under the MIT license.
+Less::Rails is Copyright (c) 2011-2013 Ken Collins, <ken@metaskills.net> and is distributed under the MIT license.
 

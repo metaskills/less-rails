@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.3.2 - 03/06/2012
+
+* Rails 4 compatability. Thanks @zhengjia.
+
+
 2.3.1 - 03/06/2012
 
 * Update to less gem 2.3.1 which really uses less v1.3.3

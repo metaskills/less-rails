@@ -13,7 +13,7 @@ module Dummy
     config.consider_all_requests_local = true
     config.eager_load = false
     
-    config.assets.enabled = true
+    config.assets.enabled = true if ::Rails::VERSION::MAJOR < 4
     config.assets.cache_store = [:file_store, "#{config.root}/tmp/cache/assets/"]
     
   end

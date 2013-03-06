@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.3.0 - 03/06/2012
+
+* Update to less gem 2.3.0 thanks @leifcr
+
+
 2.2.6 - 10/31/2012
 
 * Accidental release. Nothing new.

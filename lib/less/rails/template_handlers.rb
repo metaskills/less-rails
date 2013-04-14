@@ -24,7 +24,7 @@ module Less
       
       def config_to_less_parser_options(scope)
         paths = config_paths(scope) + scope.environment.paths
-        {:filename => eval_file, :line => line, :paths => paths}
+        {:filename => eval_file, :line => line, :paths => paths, :dumpLineNumbers => config_from_rails(scope).line_numbers}
       end
       
       def config_to_css_options(scope)

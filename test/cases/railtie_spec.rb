@@ -19,6 +19,11 @@ class RailtieSpec < Less::Rails::Spec
       reset_caches
       dummy_config.less.compress = false
       dummy_asset('basics').wont_match basic_compressed_match
+      reset_caches
+      dummy_config.less.line_numbers = 'mediaquery'
+      dummy_asset('basics').wont_match basic_compressed_match
+      basic_sourcemap_match = /@media -sass-debug-info{filename{font-family:file/
+      dummy_asset('basics').must_match basic_sourcemap_match
     end
   
   end

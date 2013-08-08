@@ -8,5 +8,5 @@ appraise 'rails32' do
 end
 
 appraise 'rails40' do
-  gem 'rails', '~> 4.0.0.beta'
+  gem 'rails', '~> 4.0.0'
 end

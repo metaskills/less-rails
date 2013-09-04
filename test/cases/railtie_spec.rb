@@ -13,7 +13,7 @@ class RailtieSpec < Less::Rails::Spec
     end
     
     it 'must have an options hash passed down to the #to_css method' do
-      basic_compressed_match = /#test-variable\{color:#4d926f;\}/
+      basic_compressed_match = /#test-variable\{color:#4d926f\}/
       dummy_config.less.compress = true
       dummy_asset('basics').must_match basic_compressed_match
       reset_caches

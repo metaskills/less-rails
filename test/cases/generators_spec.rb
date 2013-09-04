@@ -19,7 +19,7 @@ class ScaffoldGeneratorSpec < Less::Rails::GeneratorSpec
   it 'should parse and copy the scaffold to a less file' do
     run_generator ['posts']
     assert_file 'app/assets/stylesheets/scaffolds.css.less' do |contents|
-      contents.must_match %r{background-color: #fff}
+      contents.must_match %r{background-color: #fff;}
     end
   end
   

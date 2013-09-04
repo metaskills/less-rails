@@ -14,7 +14,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.require_paths = ["lib"]
-  gem.add_runtime_dependency 'less', '~> 2.3.1'
+  gem.add_runtime_dependency 'less', '~> 2.4.0'
   gem.add_runtime_dependency 'actionpack', '>= 3.1'
   gem.add_development_dependency 'appraisal'
   gem.add_development_dependency 'minitest'

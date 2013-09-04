@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.4.0 - 09/04/2013
+
+* Moving to less.rb 2.4.x which is current v1.4.2 of less.
+
+
 2.3.3 - 04/16/2013
 
 * Implement dumpLineNumbers functionality. Thanks @matthew342.

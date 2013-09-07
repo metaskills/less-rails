@@ -36,11 +36,9 @@ class BasicsSpec < Less::Rails::Spec
 
     it 'must update when an imported file of another imported file changes, and that file is imported via a relative path' do
       basics.must_match %r{#test-variable-relative-path-colored}i, 'default is #BADA55'
-      #basics.must_match %r{#test-variable-relative-path-colored\{color:#BADA55;\}}i, 'default is #BADA55'
       safely_edit(:variables_via_relative_path) do |data, asset|
         data.gsub! 'BADA55', 'BA73A2'
         File.open(asset.pathname,'w') { |f| f.write(data) }
-        #basics.must_match %r{#test-variable-relative-path-colored\{color:#BA73A2;\}}i, 'variables_via_relative_path.less should be a sprockets context dependency'
         basics.must_match %r{#test-variable-relative-path-colored}i, 'variables_via_relative_path.less should be a sprockets context dependency'
       end
     end

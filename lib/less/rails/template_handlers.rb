@@ -26,7 +26,6 @@ module Less
         paths = config_paths(scope) + scope.environment.paths
         local_path = scope.pathname.dirname
         paths += [local_path] unless paths.include? local_path
-
         {:filename => eval_file, :line => line, :paths => paths, :dumpLineNumbers => config_from_rails(scope).line_numbers}
       end
       

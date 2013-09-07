@@ -1,5 +1,6 @@
 
 @import "frameworks/bootstrap/variables";
+@import "variables_via_relative_path";
 
 .radiused(@radius: 5px) {
   border-radius: @radius;
@@ -7,4 +8,8 @@
 
 .variableColored() {
   color: @variableColor;
+}
+
+.variableRelativePathColored() {
+  color: @variableRelativePathColor;
 }

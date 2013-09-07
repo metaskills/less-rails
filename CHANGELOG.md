@@ -1,6 +1,6 @@
 # CHANGELOG
 
-### 2.4.1 - 2013-09-04
+### 2.4.1 - unreleased
 
 * Fix import hooks to allow relative paths to files. Fixes #72 and #64.
 

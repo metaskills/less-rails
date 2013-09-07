@@ -1,6 +1,6 @@
 # CHANGELOG
 
-### 2.4.1 - unreleased
+### 2.4.1 - 2013-09-07
 
 * Fix import hooks to allow relative paths to files. Fixes #72 and #64.
 * Use config.(before|after)_initialize for better railtie pattern. Fixed #68.

@@ -3,6 +3,7 @@ require 'bundler'
 Bundler.require
 require 'less/rails'
 require 'minitest/autorun'
+require 'minitest/spec'
 require 'dummy_app/init'
 require 'rails/generators'
 require 'fileutils'

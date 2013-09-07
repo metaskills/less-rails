@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 2.4.2 - 2013-09-07
+
+* Another stab at better initialization process. Fixes #68. Fixes #62.
+
 ### 2.4.1 - 2013-09-07
 
 * Fix import hooks to allow relative paths to files. Fixes #72 and #64.

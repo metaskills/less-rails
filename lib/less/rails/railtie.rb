@@ -11,38 +11,19 @@ module Less
       config.less.compress = false
       config.app_generators.stylesheet_engine :less
 
-      if ::Rails::VERSION::STRING =~ /\A3.[12]/
-
-        config.before_initialize do |app|
-          require 'less'
-          require 'less-rails'
-          Sprockets::Engines #force autoloading
-          Sprockets.register_engine '.less', LessTemplate
-        end
-
-        initializer 'less-rails.after.load_config_initializers', :after => :load_config_initializers, :group => :all do |app|
-          (Sprockets.respond_to?('register_preprocessor') ? Sprockets : app.assets).register_preprocessor 'text/css', ImportProcessor
-          app.assets.context_class.extend(LessContext)
-          app.assets.context_class.less_config = app.config.less
-        end
-
-      else
-
-        config.before_initialize do |app|
-          require 'less'
-          require 'less-rails'
-          Sprockets::Engines #force autoloading
-          Sprockets.register_engine '.less', LessTemplate
-          (Sprockets.respond_to?('register_preprocessor') ? Sprockets : app.assets).register_preprocessor 'text/css', ImportProcessor
-        end
-
-        config.after_initialize do |app|
-          app.assets.context_class.extend(LessContext)
-          app.assets.context_class.less_config = app.config.less
-        end
-
+      config.before_initialize do |app|
+        require 'less'
+        require 'less-rails'
+        Sprockets::Engines #force autoloading
+        Sprockets.register_engine '.less', LessTemplate
       end
-      
+
+      initializer 'less-rails.before.load_config_initializers', :before => :load_config_initializers, :group => :all do |app|
+        (Sprockets.respond_to?('register_preprocessor') ? Sprockets : app.assets).register_preprocessor 'text/css', ImportProcessor
+        app.assets.context_class.extend(LessContext)
+        app.assets.context_class.less_config = app.config.less
+      end
+
       initializer 'less-rails.after.append_assets_path', :after => :append_assets_path, :group => :all do |app|
         assets_stylesheet_paths = app.config.assets.paths.select { |p| p && p.to_s.ends_with?('stylesheets') }
         app.config.less.paths.unshift(*assets_stylesheet_paths)

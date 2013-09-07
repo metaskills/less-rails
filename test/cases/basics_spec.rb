@@ -33,7 +33,16 @@ class BasicsSpec < Less::Rails::Spec
         basics.must_match %r{#test-variable-colored\{color:#666\}}, 'variables.less should be a sprockets context dependency'
       end
     end
-    
+
+    it 'must update when an imported file of another imported file changes, and that file is imported via a relative path' do
+      basics.must_match %r{#test-variable-relative-path-colored\{color:#BADA55;\}}i, 'default is #BADA55'
+      safely_edit(:variables_via_relative_path) do |data, asset|
+        data.gsub! 'BADA55', 'BA73A2'
+        File.open(asset.pathname,'w') { |f| f.write(data) }
+        basics.must_match %r{#test-variable-relative-path-colored\{color:#BA73A2;\}}i, 'variables_via_relative_path.less should be a sprockets context dependency'
+      end
+    end
+
   end
 
   protected
@@ -49,7 +58,11 @@ class BasicsSpec < Less::Rails::Spec
   def variables_asset
     dummy_assets['frameworks/bootstrap/variables.less']
   end
-  
+
+  def variables_via_relative_path_asset
+    dummy_assets['frameworks/bootstrap/variables_via_relative_path.less']
+  end
+
   def safely_edit(name)
     asset = send :"#{name}_asset"
     data = File.read(asset.pathname)

@@ -5,3 +5,4 @@ pkg/*
 *.log
 tmp/*
 test/dummy_app/tmp/cache/assets/*
+

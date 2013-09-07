@@ -11,17 +11,20 @@ module Less
         depend_on scope, data
         data
       end
-      
-      def depend_on(scope, data)
+
+      def depend_on(scope, data, base=File.dirname(scope.logical_path))
         import_paths = data.scan(IMPORT_SCANNER).flatten.compact.uniq
-        import_paths.each do |path|
+        for path in import_paths
           pathname = begin
                        scope.resolve(path)
                      rescue Sprockets::FileNotFound
-                       nil
+                       # try relative path
+                       path = File.join(base, path)
+                       scope.resolve(path) rescue nil
                      end
+
           scope.depend_on(path) if pathname && pathname.to_s.ends_with?('.less')
-          depend_on scope, File.read(pathname) if pathname
+          depend_on scope, File.read(pathname), File.dirname(path) if pathname
         end
         data
       end

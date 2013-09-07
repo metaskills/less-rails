@@ -3,6 +3,7 @@
 ### 2.4.1 - unreleased
 
 * Fix import hooks to allow relative paths to files. Fixes #72 and #64.
+* Use config.(before|after)_initialize for better railtie pattern. Fixed #68.
 
 ### 2.4.0 - 2013-09-04
 

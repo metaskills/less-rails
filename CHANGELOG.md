@@ -3,6 +3,8 @@
 ### 2.4.2 - 2013-09-07
 
 * Another stab at better initialization process. Fixes #68. Fixes #62.
+  NOTE: If you were using `less-rails.after.load_config_initializers`, please
+  change your initializer to use `less-rails.before.load_config_initializers`.
 
 ### 2.4.1 - 2013-09-07
 

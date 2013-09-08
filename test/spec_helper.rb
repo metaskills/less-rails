@@ -1,16 +1,12 @@
-require 'rubygems'
-require 'bundler'
-Bundler.require
-require 'less/rails'
+require 'bundler' ; Bundler.require :development, :test
+require 'less-rails'
 require 'minitest/autorun'
-require 'minitest/spec'
 require 'dummy_app/init'
 require 'rails/generators'
 require 'fileutils'
 
 module Less
   module Rails
-
     class Spec < MiniTest::Spec
       
       include FileUtils
@@ -54,14 +50,11 @@ module Less
       end
       
       def reset_caches
-        dummy_assets.version = SecureRandom.hex(32)
+        version = SecureRandom.hex(32)
+        dummy_config.assets.version = version
+        dummy_assets.version = version
         cache = dummy_assets.cache
-        if cache.is_a? Sprockets::Cache::FileStore
-          path = cache.instance_variable_get(:@root)
-          cache = Sprockets::Cache::FileStore.new(path)
-        else
-          cache.clear
-        end
+        cache.respond_to?(:clear) ? cache.clear : rm_r("#{dummy_tmp}/cache/assets")
       end
       
       def prepare_cache_dir

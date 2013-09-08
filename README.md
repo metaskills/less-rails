@@ -115,7 +115,7 @@ We also have a generator for rails scaffold CSS. Just like the Sass gem, we simp
 
 ## Contributing
 
-This gem is fully tested from Rails 3.1 to 4. We run our tests on [Travis CI](http://travis-ci.org/metaskills/less-rails) in both Ruby 1.8 and 1.9, 2.0, and jruby 1.8 and 1.9 mode. If you detect a problem, open up a github issue or fork the repo and help out. After you fork or clone the repository, the following commands will get you up and running on the test suite. 
+This gem is fully tested from Rails 3.1 to 4. We run our tests on [Travis CI](http://travis-ci.org/metaskills/less-rails) in both Ruby 1.9, 2.0, and jRuby 1.9 mode. If you detect a problem, open up a github issue or fork the repo and help out. After you fork or clone the repository, the following commands will get you up and running on the test suite. 
 
 ```shell
 $ bundle install

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+### 2.5.0 - 2014-03-11
+
+* Update to Less.rb v2.5 and follow version mirror. Fixes #84.
+
+
 ### 2.4.2 - 2013-09-07
 
 * Another stab at better initialization process. Fixes #68. Fixes #62.

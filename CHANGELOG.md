@@ -1,5 +1,10 @@
 # CHANGELOG
 
+### 2.6.0 - 2014-11-07
+
+* Update to Less.rb v2.6.
+* Merge PR #88 'Fix dropped import dependencies'.
+
 ### 2.5.0 - 2014-03-11
 
 * Update to Less.rb v2.5 and follow version mirror. Fixes #84.

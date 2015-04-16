@@ -1,4 +1,4 @@
-# The dynamic stylesheet language for the Rails asset pipeline.
+# The dynamic stylesheet language for the Rails 4+ asset pipeline.
 
 This gem provides integration for Rails projects using the Less stylesheet language in the asset pipeline.
 
@@ -115,7 +115,7 @@ We also have a generator for rails scaffold CSS. Just like the Sass gem, we simp
 
 ## Contributing
 
-This gem is fully tested from Rails 3.1 to 4. We run our tests on [Travis CI](http://travis-ci.org/metaskills/less-rails) in both Ruby 1.9, 2.0, and jRuby 1.9 mode. If you detect a problem, open up a github issue or fork the repo and help out. After you fork or clone the repository, the following commands will get you up and running on the test suite. 
+This gem is fully tested from Rails 4.0 to Rails 4.2. We run our tests on [Travis CI](http://travis-ci.org/metaskills/less-rails) in both Ruby 1.9, 2.0, and jRuby 1.9 mode. If you detect a problem, open up a github issue or fork the repo and help out. After you fork or clone the repository, the following commands will get you up and running on the test suite. 
 
 ```shell
 $ bundle install
@@ -123,10 +123,10 @@ $ bundle exec rake appraisal:setup
 $ bundle exec rake appraisal test
 ```
 
-We use the [appraisal](https://github.com/thoughtbot/appraisal) gem from Thoughtbot to help us generate the individual gemfiles for each Rails version and to run the tests locally against each generated Gemfile. The `rake appraisal test` command actually runs our test suite against all Rails versions in our `Appraisal` file. If you want to run the tests for a specific Rails version, use `rake -T` for a list. For example, the following command will run the tests for Rails 3.2 only.
+We use the [appraisal](https://github.com/thoughtbot/appraisal) gem from Thoughtbot to help us generate the individual gemfiles for each Rails version and to run the tests locally against each generated Gemfile. The `rake appraisal test` command actually runs our test suite against all Rails versions in our `Appraisal` file. If you want to run the tests for a specific Rails version, use `rake -T` for a list. For example, the following command will run the tests for Rails 4.0 only.
 
 ```shell
-$ bundle exec rake appraisal:rails32 test
+$ bundle exec rake appraisal:rails40 test
 ```
 
 Our current build status is:

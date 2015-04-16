@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.require_paths = ["lib"]
   gem.add_runtime_dependency 'less', '~> 2.6.0'
-  gem.add_runtime_dependency 'actionpack', '>= 3.1'
+  gem.add_runtime_dependency 'actionpack', '>= 4.0'
   gem.add_runtime_dependency 'tilt'
   gem.add_runtime_dependency 'sprockets', '> 2', '< 4'
   gem.add_development_dependency 'appraisal'

@@ -3,6 +3,7 @@
 ### 2.7.0 - 2015-04-17
 
 * compatibility with Sprockets 3
+* Drop Rails 3.x support
 
 ### 2.6.0 - 2014-11-07
 

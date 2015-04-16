@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 2.7.0 - 2015-04-17
+
+* compatibility with Sprockets 3
+
 ### 2.6.0 - 2014-11-07
 
 * Update to Less.rb v2.6.

@@ -17,8 +17,11 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.add_runtime_dependency 'less', '~> 2.6.0'
   gem.add_runtime_dependency 'actionpack', '>= 3.1'
+  gem.add_runtime_dependency 'tilt'
+  gem.add_runtime_dependency 'sprockets', '> 2', '< 4'
   gem.add_development_dependency 'appraisal'
   gem.add_development_dependency 'minitest'
+  gem.add_development_dependency 'guard'
   gem.add_development_dependency 'guard-minitest'
   gem.add_development_dependency 'rails'
 end

@@ -3,6 +3,8 @@ require 'sprockets/railtie'
 module Less  
   module Rails
     class Railtie < ::Rails::Railtie
+      class NoPreprocessorHandler < StandardError; end
+
       config.less = ActiveSupport::OrderedOptions.new
       config.less.paths = []
       config.less.compress = false
@@ -16,8 +18,19 @@ module Less
       end
 
       initializer 'less-rails.before.load_config_initializers', :before => :load_config_initializers, :group => :all do |app|
-        app.assets.register_preprocessor 'text/css', ImportProcessor
-        Sprockets.register_preprocessor 'text/css', ImportProcessor if Sprockets.respond_to?('register_preprocessor')
+        handled = false
+
+        if app.assets.respond_to?('register_preprocessor')
+          app.assets.register_preprocessor 'text/css', ImportProcessor
+          handled = true
+        end
+
+        if Sprockets.respond_to?('register_preprocessor')
+          Sprockets.register_preprocessor 'text/css', ImportProcessor 
+          handled = true
+        end
+
+        raise NoPreprocessorHandler unless handled
 
         config.assets.configure do |env|
           env.context_class.class_eval do

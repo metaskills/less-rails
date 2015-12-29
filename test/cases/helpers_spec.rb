@@ -7,10 +7,11 @@ class HelpersSpec < Less::Rails::Spec
   let(:helpers) { dummy_asset('helpers') }
   
   it 'parse asset paths' do
-    line_for_helper('asset-path').must_equal  'asset-path: "/assets/rails.png";'
-    line_for_helper('asset-url').must_equal   "asset-url: url(/assets/rails.png);"
-    line_for_helper('image-path').must_equal  'image-path: "/assets/rails.png";'
-    line_for_helper('image-url').must_equal   "image-url: url(/assets/rails.png);"
+    _digest = Rails.application.assets['rails.png'].digest
+    line_for_helper('asset-path').must_equal  "asset-path: \"/assets/rails-#{_digest}.png\";"
+    line_for_helper('asset-url').must_equal   "asset-url: url(/assets/rails-#{_digest}.png);"
+    line_for_helper('image-path').must_equal  "image-path: \"/assets/rails-#{_digest}.png\";"
+    line_for_helper('image-url').must_equal   "image-url: url(/assets/rails-#{_digest}.png);"
     line_for_helper('video-path').must_equal  'video-path: "/videos/rails.mp4";'
     line_for_helper('video-url').must_equal   "video-url: url(/videos/rails.mp4);"
     line_for_helper('audio-path').must_equal  'audio-path: "/audios/rails.mp3";'

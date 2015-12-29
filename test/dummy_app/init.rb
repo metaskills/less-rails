@@ -14,6 +14,7 @@ module Dummy
     config.eager_load = false
     
     config.assets.enabled = true if ::Rails::VERSION::MAJOR < 4
+    config.assets.digest = true
     config.assets.cache_store = [:file_store, "#{config.root}/tmp/cache/assets/"]
     
   end

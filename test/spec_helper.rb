@@ -54,7 +54,7 @@ module Less
         dummy_config.assets.version = version
         dummy_assets.version = version
         cache = dummy_assets.cache
-        cache.respond_to?(:clear) ? cache.clear : rm_r("#{dummy_tmp}/cache/assets")
+        cache.respond_to?(:clear) ? cache.clear : rm_rf("#{dummy_tmp}/cache/assets")
       end
       
       def prepare_cache_dir

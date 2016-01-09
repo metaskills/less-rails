@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 2.7.1 - 2016-09-01
+
+* Fix Sprockets 3 integration. Thanks @suzan2go and @ccallebs!
+
 ### 2.7.0 - 2015-04-17
 
 * compatibility with Sprockets 3

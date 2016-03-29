@@ -6,6 +6,7 @@ module Less
       config.less = ActiveSupport::OrderedOptions.new
       config.less.paths = []
       config.less.compress = false
+      config.less.raw = ActiveSupport::OrderedOptions.new
       config.app_generators.stylesheet_engine :less
 
       config.before_initialize do |app|

@@ -60,6 +60,16 @@ Will end up acting as if you had done this below:
 #leftnav { .border-radius(5px); }
 ```
 
+## Using relative paths for imports
+
+For historical reasons [`less.rb`](https://github.com/cowboyd/less.rb) gem (which `less-rails` is based upon) uses [lessc --relative-urls](http://lesscss.org/usage/#command-line-usage-relative-urls) by default. This means that `url('../ralative/paths.png')` will be modified according to `.less` file location. To return back to default `lessc` behavior, add these lines to `config/initializers/assets.rb`:
+
+```ruby
+Rails.application.config.less.raw.relativeUrls = false
+```
+
+You can pass any parameters that the [less.rb gem](https://github.com/cowboyd/less.rb/blob/master/lib/less/defaults.rb) supports.
+
 
 
 ## Helpers

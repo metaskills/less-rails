@@ -47,6 +47,7 @@ class BasicsSpec < Less::Rails::Spec
 
   describe 'relative path setting must be effective' do
     it 'must use relavite paths by default' do
+      Rails.application.config.less.raw.relativeUrls = true;
       basics.must_match %r{body\{background-image:url\('i-have-no-imagination.png'\)\}}
     end
 

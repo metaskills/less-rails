@@ -63,7 +63,7 @@ Will end up acting as if you had done this below:
 ## Passing parameters to less.rb
 
 You can pass any parameters that the [`less.rb`](https://github.com/cowboyd/less.rb) gem (which `less-rails` is based upon) supports by modifying `Rails.application.config.less.raw`.
-For example, `less.rb` uses [lessc --relative-urls](http://lesscss.org/usage/#command-line-usage-relative-urls) by default. This means that `url('../ralative/paths.png')` will be modified according to `.less` file location. To return back to default `lessc` behavior, add these lines to `config/initializers/assets.rb`:
+For example, `less.rb` uses [lessc --relative-urls](http://lesscss.org/usage/#command-line-usage-relative-urls) by default. This means that `url('../ralative/paths.png')` for `@import`ed files will be modified according to `.less` file location. To return back to default `lessc` behavior, add these lines to `config/initializers/assets.rb`:
 
 ```ruby
 Rails.application.config.less.raw.relativeUrls = false

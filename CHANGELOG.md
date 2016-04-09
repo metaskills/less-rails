@@ -1,6 +1,6 @@
 # CHANGELOG
 
-### 2.7.2 - ?
+### 2.8.0 - ?
 
 * Make it possible to pass parameters to less.rb
   Fixes https://github.com/metaskills/less-rails/issues/94

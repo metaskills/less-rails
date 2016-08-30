@@ -18,6 +18,9 @@ module Less
           args = ['.less', LessTemplate]
           args << { mime_type: 'text/less', silence_deprecation: true } if Sprockets::VERSION.start_with?("3")
           Sprockets.register_engine(*args)
+        elsif Sprockets.respond_to?(:register_transformer)
+          Sprockets.register_mime_type 'text/less', extensions: ['.less'], charset: :css
+          Sprockets.register_preprocessor 'text/less', ImportProcessor
         end
       end
 

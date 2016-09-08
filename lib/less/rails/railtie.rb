@@ -17,7 +17,7 @@ module Less
         config.assets.configure do |env|
           if env.respond_to?(:register_engine)
             args = ['.less', LessTemplate]
-            args << { mime_type: 'text/less', silence_deprecation: true } if env::VERSION.start_with?("3")
+            args << { mime_type: 'text/less', silence_deprecation: true } if Sprockets::VERSION.start_with?("3")
             env.register_engine(*args)
           elsif env.respond_to?(:register_transformer)
             env.register_mime_type 'text/less', extensions: ['.less'], charset: :css

@@ -2,7 +2,7 @@
 
 This gem provides integration for Rails projects using the Less stylesheet language in the asset pipeline.
 
-[![Build Status](https://secure.travis-ci.org/metaskills/minitest-spec-rails.png)](http://travis-ci.org/metaskills/less-rails)
+[![Build Status](https://secure.travis-ci.org/metaskills/minitest-spec-rails.svg)](http://travis-ci.org/metaskills/less-rails)
 
 
 ## Installing

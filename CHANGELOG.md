@@ -1,5 +1,10 @@
 # CHANGELOG
 
+### 2.8.1 - 2016-11-11
+
+* Avoid Sprockets deprecations
+	Fixes https://github.com/metaskills/less-rails/issues/122
+
 ### 2.8.0 - ?
 
 * Make it possible to pass parameters to less.rb

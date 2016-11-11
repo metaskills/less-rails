@@ -26,7 +26,7 @@ module Less
 
           if env.respond_to?(:register_engine)
             args = ['.less', LessTemplate]
-            args << {mime_type: 'text/less', silence_deprecation: true } if env.method(:register_engine).arity.abs > 2
+            args << {mime_type: 'text/less', silence_deprecation: true } if Sprockets::VERSION.start_with?("3")
             env.register_engine(*args)
           end
 

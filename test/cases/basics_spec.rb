@@ -13,6 +13,18 @@ class BasicsSpec < Less::Rails::Spec
   it 'must be able to use vendored less files' do
     basics.must_match %r{#test-vendored\{border-radius:10px\}}
   end
+
+  describe 'depends_on' do
+
+    it 'must be able to use a vendor dependency file' do
+      basics.must_match %r{#class-using-vendor-variable\{color:white;\}}
+    end
+
+    it 'must not include the vendor dependency file in the output' do
+      basics.must_not match %r{\.vendorClass\{color:white;\}}
+    end
+
+  end
   
   describe 'less import dependency hooks' do
     

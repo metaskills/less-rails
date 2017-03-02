@@ -1,14 +1,20 @@
-rvm:
-  - 1.9.3
-  - 2.0.0
-  - 2.1.4
-  - jruby-19mode
+language: ruby
+cache: bundler
+sudo: false
 before_install:
-  - travis_retry gem install bundler
-  - bundle --version
-install:
-  - travis_retry bundle install
-before_script:
-  - travis_retry bundle exec appraisal install
+  - gem install bundler -v 1.13.7
 script:
-  - bundle exec appraisal rake test
+  - bundle exec rake test
+rvm:
+  - 2.1.9
+  - 2.2.5
+  - 2.3.1
+env:
+  - "RAILS_VERSION=4.0"
+  - "RAILS_VERSION=4.1"
+  - "RAILS_VERSION=4.2"
+  - "RAILS_VERSION=5.0"
+matrix:
+  exclude:
+    - rvm: 2.1.9
+      env: "RAILS_VERSION=5.0"

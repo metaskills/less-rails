@@ -28,7 +28,7 @@ module Less
 
       initializer 'less-rails.before.load_config_initializers', :before => :load_config_initializers, :group => :all do |app|
         sprockets_env = app.assets || Sprockets
-        sprockets_env.register_preprocessor 'text/css', ImportProcessor
+        sprockets_env.register_preprocessor 'text/css', ImportProcessor, silence_deprecation: true
 
         config.assets.configure do |env|
           env.context_class.class_eval do

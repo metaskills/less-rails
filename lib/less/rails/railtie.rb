@@ -20,8 +20,8 @@ module Less
         end
 
         if sprockets_env.respond_to?(:register_transformer)
-          sprockets_env.register_mime_type 'text/less', extensions: ['.less'], charset: :css
-          sprockets_env.register_preprocessor 'text/less', Grease.apply(LessTemplate)
+          sprockets_env.register_mime_type 'text/less', extensions: ['.less', '.less.erb'], charset: :css
+          sprockets_env.register_transformer 'text/less', 'text/css', Grease.apply(LessTemplate)
         end
       end
 

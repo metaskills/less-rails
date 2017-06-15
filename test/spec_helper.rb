@@ -100,7 +100,7 @@ module Less
       end
       
       def run_generator(args=default_arguments, config={})
-        capture(:stdout) { generator_class.start(args, config.reverse_merge(:destination_root => destination_root)) }
+        capture { generator_class.start(args, config.reverse_merge(:destination_root => destination_root)) }
       end
 
       def generator(args=default_arguments, options={}, config={})
@@ -122,9 +122,32 @@ module Less
         end
       end
       alias :assert_directory :assert_file
-      
+
+      # From episode 029 of Ruby Tapas by Avdi
+      # https://rubytapas.dpdcart.com/subscriber/post?id=88
+      def capture(stream=STDOUT, &block)
+        old_stdout = stream.clone
+        pipe_r, pipe_w = IO.pipe
+        pipe_r.sync    = true
+        output         = ""
+        reader = Thread.new do
+          begin
+            loop do
+              output << pipe_r.readpartial(1024)
+            end
+          rescue EOFError
+          end
+        end
+        stream.reopen(pipe_w)
+        yield
+      ensure
+        stream.reopen(old_stdout)
+        pipe_w.close
+        reader.join
+        pipe_r.close
+        return output
+      end
     end
-    
   end
 end
 

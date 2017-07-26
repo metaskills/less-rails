@@ -2,10 +2,13 @@ language: ruby
 cache: bundler
 sudo: false
 rvm:
-  - 2.2.7
-  - 2.3.4
-  - 2.4.1
-  - jruby-9.1.9.0
+  - 1.9
+  - 2.0
+  - 2.1
+  - 2.2
+  - 2.3
+  - 2.4
+  - jruby
 before_install:
   - gem install bundler
 gemfile:
@@ -16,7 +19,19 @@ gemfile:
   - gemfiles/rails51.gemfile
 matrix:
   exclude:
-    - rvm: 2.4.1
+    - rvm: 1.9
+      gemfile: gemfiles/rails50.gemfile
+    - rvm: 1.9
+      gemfile: gemfiles/rails51.gemfile
+    - rvm: 2.0
+      gemfile: gemfiles/rails50.gemfile
+    - rvm: 2.0
+      gemfile: gemfiles/rails51.gemfile
+    - rvm: 2.1
+      gemfile: gemfiles/rails50.gemfile
+    - rvm: 2.1
+      gemfile: gemfiles/rails51.gemfile
+    - rvm: 2.4
       gemfile: gemfiles/rails40.gemfile
-    - rvm: 2.4.1
+    - rvm: 2.4
       gemfile: gemfiles/rails41.gemfile

@@ -16,7 +16,7 @@ gem 'less-rails', '~> 2.7.0'
 But be warned, less.rb relies on a JavaScript runtime gem too. Just like ExecJS, it will look for a gem that is appropriate to your system. Typically, this means you will need one of the following.
 
 ```ruby
-gem 'mini_racer' # Ruby
+gem 'therubyracer' # Ruby
 gem 'therubyrhino' # JRuby
 ```
 

@@ -100,7 +100,7 @@ module Less
       end
       
       def run_generator(args=default_arguments, config={})
-        capture(:stdout) { generator_class.start(args, config.reverse_merge(:destination_root => destination_root)) }
+        generator_class.start(args, config.reverse_merge(:destination_root => destination_root))
       end
 
       def generator(args=default_arguments, options={}, config={})

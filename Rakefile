@@ -7,6 +7,7 @@ Rake::TestTask.new do |t|
   t.libs = ['lib','test']
   t.test_files = Dir.glob("test/**/*_spec.rb").sort
   t.verbose = true
+  # t.warning = false
 end
 
 task :default => [:test]

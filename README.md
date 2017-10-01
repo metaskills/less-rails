@@ -128,9 +128,9 @@ We also have a generator for rails scaffold CSS. Just like the Sass gem, we simp
 This gem is fully tested from Rails 4.0 to Rails 4.2. We run our tests on [Travis CI](http://travis-ci.org/metaskills/less-rails) in both Ruby 1.9, 2.0, and jRuby 1.9 mode. If you detect a problem, open up a github issue or fork the repo and help out. After you fork or clone the repository, the following commands will get you up and running on the test suite. 
 
 ```shell
-$ bundle install
-$ bundle exec rake appraisal:setup
-$ bundle exec rake appraisal test
+$ bundle
+$ bundle exec appraisal install
+$ bundle exec appraisal rake
 ```
 
 We use the [appraisal](https://github.com/thoughtbot/appraisal) gem from Thoughtbot to help us generate the individual gemfiles for each Rails version and to run the tests locally against each generated Gemfile. The `rake appraisal test` command actually runs our test suite against all Rails versions in our `Appraisal` file. If you want to run the tests for a specific Rails version, use `rake -T` for a list. For example, the following command will run the tests for Rails 4.0 only.

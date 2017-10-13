@@ -1,5 +1,4 @@
 require 'less'
-require 'grease'
 require 'sprockets/railtie'
 
 module Less
@@ -14,20 +13,21 @@ module Less
       config.before_initialize do |app|
         sprockets_env = app.assets || Sprockets
         if sprockets_env.respond_to?(:register_engine)
-          args = ['.less', Grease.apply(LessTemplate)]
+          args = ['.less', LessTransformer]
           args << { mime_type: 'text/less', silence_deprecation: true } if Sprockets::VERSION.start_with?("3")
           sprockets_env.register_engine(*args)
         end
 
         if sprockets_env.respond_to?(:register_transformer)
           sprockets_env.register_mime_type 'text/less', extensions: ['.less', '.less.erb', '.less.css'], charset: :css
-          sprockets_env.register_transformer 'text/less', 'text/css', Grease.apply(LessTemplate)
+          sprockets_env.register_preprocessor 'text/less', Sprockets::DirectiveProcessor.new(comments: ["//", ["/*", "*/"]])
+          sprockets_env.register_transformer 'text/less', 'text/css', LessTransformer
         end
       end
 
       initializer 'less-rails.before.load_config_initializers', :before => :load_config_initializers, :group => :all do |app|
         sprockets_env = app.assets || Sprockets
-        sprockets_env.register_preprocessor 'text/css', Grease.apply(ImportProcessor)
+        sprockets_env.register_preprocessor 'text/css', ImportProcessor
 
         config.assets.configure do |env|
           env.context_class.class_eval do

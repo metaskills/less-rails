@@ -5,7 +5,6 @@ end
 
 require 'less'
 require 'rails'
-require 'tilt'
 require 'sprockets'
 begin
  require 'sprockets/railtie'
@@ -15,6 +14,6 @@ end
 
 require 'less/rails/version'
 require 'less/rails/helpers'
-require 'less/rails/template_handlers'
+require 'less/rails/less_transformer'
 require 'less/rails/import_processor'
 require 'less/rails/railtie'

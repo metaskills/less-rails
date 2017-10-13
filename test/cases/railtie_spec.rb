@@ -31,7 +31,7 @@ class RailtieSpec < Less::Rails::Spec
   describe 'initialization' do
     
     it 'must register our template engine' do
-      dummy_assets.engines['.less'].must_be_instance_of Grease::Adapter
+      dummy_assets.engines['.less'].must_equal Less::Rails::LessTransformer
     end
     
     it 'must extend the context class with our config' do
@@ -40,9 +40,7 @@ class RailtieSpec < Less::Rails::Spec
     end
     
     it 'must register our import pre processor' do
-      dummy_assets.preprocessors['text/css'].any? do |preprocessor|
-        preprocessor.is_a? Grease::Adapter
-      end.must_equal true
+      dummy_assets.preprocessors['text/css'].must_include Less::Rails::ImportProcessor
     end
     
     it 'must include the asset pipelines stylesheet paths to less paths' do

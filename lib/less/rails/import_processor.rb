@@ -35,6 +35,10 @@ module Less
         scope.metadata.merge(data: result)
       end
 
+      def self.default_mime_type
+        'text/css'
+      end
+
       def self.depend_on(scope, source, base=File.dirname(scope.logical_path))
         import_paths = source.scan(IMPORT_SCANNER).flatten.compact.uniq
         import_paths.each do |path|

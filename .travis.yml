@@ -12,6 +12,7 @@ rvm:
 before_install:
   - gem install bundler
 gemfile:
+  - gemfiles/sprockets2.gemfile
   - gemfiles/rails40.gemfile
   - gemfiles/rails41.gemfile
   - gemfiles/rails42.gemfile

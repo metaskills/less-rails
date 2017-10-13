@@ -30,6 +30,10 @@ module Less
         scope.metadata.merge(data: result)
       end
 
+      def self.default_mime_type
+        'text/css'
+      end
+
       protected
 
       def self.config_to_less_parser_options(filename, scope)

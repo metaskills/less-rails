@@ -1,36 +1,54 @@
 require 'spec_helper'
 
 class BasicsSpec < Less::Rails::Spec
-  
+
   it 'must render variables' do
     basics.must_match %r{#test-variable\{color:#4d926f\}}
   end
-  
+
   it 'must render mixins' do
     basics.must_match %r{#test-mixin span\{border:1px solid black\}}
   end
-  
+
   it 'must be able to use vendored less files' do
     basics.must_match %r{#test-vendored\{border-radius:10px\}}
   end
-  
+
   describe 'less import dependency hooks' do
-    
+
     it 'must update when imported file changes' do
       basics.must_match %r{#test-radiused\{border-radius:5px\}}, 'default is 5px'
       safely_edit(:mixins) do |data, asset|
-        data.gsub! '5px', '10px'
+        data.gsub! '5px', '8px'
         File.open(asset.pathname,'w') { |f| f.write(data) }
-        basics.must_match %r{#test-radiused\{border-radius:10px\}}, 'mixins.less should be a sprockets context dependency'
+        basics.must_match %r{#test-radiused\{border-radius:8px\}}, 'mixins.less should be a sprockets context dependency'
+
+        data.gsub! '8px', '15px'
+        File.open(asset.pathname,'w') { |f| f.write(data) }
+
+        # Force a recompile
+        # https://github.com/rails/sprockets/blob/master/test/shared_sass_tests.rb#L164
+        mtime = Time.now + 1
+        File.utime(mtime, mtime, asset.pathname)
+
+        basics.must_match %r{#test-radiused\{border-radius:15px\}}, 'mixins.less should be a sprockets context dependency'
       end
     end
-    
+
     it 'must update when an imported file of another imported file changes' do
       basics.must_match %r{#test-variable-colored\{color:#424242\}}, 'default is #424242'
       safely_edit(:variables) do |data, asset|
         data.gsub! '424242', '666666'
         File.open(asset.pathname,'w') { |f| f.write(data) }
         basics.must_match %r{#test-variable-colored\{color:#666\}}, 'variables.less should be a sprockets context dependency'
+
+        data.gsub! '666666', '888888'
+        File.open(asset.pathname,'w') { |f| f.write(data) }
+
+        mtime = Time.now + 1
+        File.utime(mtime, mtime, asset.pathname)
+
+        basics.must_match %r{#test-variable-colored\{color:#888\}}, 'variables.less should be a sprockets context dependency'
       end
     end
 
@@ -61,15 +79,15 @@ class BasicsSpec < Less::Rails::Spec
   end
 
   protected
-  
+
   def basics
     dummy_asset 'basics'
   end
-  
+
   def mixins_asset
     dummy_assets['frameworks/bootstrap/mixins.less']
   end
-  
+
   def variables_asset
     dummy_assets['frameworks/bootstrap/variables.less']
   end

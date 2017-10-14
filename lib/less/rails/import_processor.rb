@@ -2,7 +2,8 @@ module Less
   module Rails
     class ImportProcessor
 
-      IMPORT_SCANNER = /@import\s*['"]([^'"]+)['"]\s*;/.freeze
+      # http://lesscss.org/features/#import-options
+      IMPORT_SCANNER = /@import\s*(?:\([a-z, ]+\))*\s*['"]([^'"]+)['"]\s*;/.freeze
 
       PATHNAME_FINDER = Proc.new do |scope, path|
         begin

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+### 4.0.0 - 2018-08-24
+
+* The import scanner now takes into account multiple [import options](http://lesscss.org/features/#import-atrules-feature-import-options).
+* Removed Tilt and Grease as dependencies.
+* **Breaking Change**: If you are requiring your less files using the extension, e.g:
+  `*= require semantic_ui/definitions/modules/accordion.less`
+  you need to remove the extension like so:
+  `*= require semantic_ui/definitions/modules/accordion`
+
 ### 3.0.0 - 2017-10-02
 
 * Solve deprecation warning via Grease adapter!

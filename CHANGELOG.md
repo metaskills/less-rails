@@ -1,6 +1,6 @@
 # CHANGELOG
 
-### 4.0.0 - 2018-08-24
+### 4.0.0 - 2018-10-31
 
 * The import scanner now takes into account multiple [import options](http://lesscss.org/features/#import-atrules-feature-import-options).
 * Removed Tilt and Grease as dependencies.

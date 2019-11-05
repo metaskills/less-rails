@@ -1,7 +1,8 @@
+require 'less/rails/autoload'
+
 module Less
   module Rails
     class LessTransformer
-      include Helpers
 
       TO_CSS_KEYS = [:compress, :optimization, :silent, :color]
 
@@ -15,8 +16,8 @@ module Less
       end
 
       def self.evaluate(filename, source, scope)
-        Less.Parser['scope'] = scope
-        parser = ::Less::Parser.new config_to_less_parser_options(filename, scope)
+        Autoload::Less['Parser']['scope'] = scope
+        parser = Autoload::Less::Parser.new config_to_less_parser_options(filename, scope)
         engine = parser.parse(source)
         engine.to_css config_to_css_options(scope)
       end

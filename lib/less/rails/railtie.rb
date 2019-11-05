@@ -1,4 +1,3 @@
-require 'less'
 require 'sprockets/railtie'
 
 module Less

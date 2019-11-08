@@ -12,11 +12,11 @@ module Dummy
     config.cache_store = :memory_store
     config.consider_all_requests_local = true
     config.eager_load = false
-    
+
     config.assets.enabled = true if ::Rails::VERSION::MAJOR < 4
     config.assets.digest = true
     config.assets.cache_store = [:file_store, "#{config.root}/tmp/cache/assets/"]
-    
+
   end
 end
 

@@ -38,7 +38,7 @@ module Less
 
       def self.config_to_less_parser_options(filename, scope)
         paths = config_paths(scope) + scope.environment.paths
-        local_path = scope.pathname.dirname
+        local_path = scope.load_path
         paths += [local_path] unless paths.include? local_path
         {:filename => filename, :paths => paths, :dumpLineNumbers => config_from_rails(scope).line_numbers}.merge(config_raw(scope))
       end

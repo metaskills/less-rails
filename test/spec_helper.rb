@@ -67,7 +67,6 @@ module Less
     class GeneratorSpec < Spec
 
       class_attribute :destination_root, :current_path, :generator_class, :default_arguments
-      delegate        :destination_root, :current_path, :generator_class, :default_arguments, :to => :'self.class'
 
       self.current_path      = File.expand_path(Dir.pwd)
       self.default_arguments = []
@@ -111,7 +110,7 @@ module Less
 
       def assert_file(relative, *contents)
         absolute = File.expand_path(relative, destination_root)
-        assert File.exists?(absolute), "Expected file #{relative.inspect} to exist, but does not"
+        assert File.exist?(absolute), "Expected file #{relative.inspect} to exist, but does not"
         read = File.read(absolute) if block_given? || !contents.empty?
         yield read if block_given?
         contents.each do |content|

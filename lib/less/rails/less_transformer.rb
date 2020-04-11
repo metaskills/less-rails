@@ -44,7 +44,7 @@ module Less
       end
 
       def self.config_to_css_options(scope)
-        Hash[config_from_rails(scope).each.to_a].slice *TO_CSS_KEYS
+        Hash[config_from_rails(scope).each.to_a].slice(*TO_CSS_KEYS)
       end
 
       def self.config_paths(scope)

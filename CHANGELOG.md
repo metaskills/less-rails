@@ -1,5 +1,11 @@
 # CHANGELOG
 
+### 5.0.0 - 2020-04-11
+
+* Update dependencies (Rails 5.2 and 6.0, Ruby 2.6 and Ruby 2.7a), drop old rubies and rails versions.
+* Dropping official JRuby support (removing it from CI).
+* Lock to sprockets ~> 3.0.
+
 ### 4.0.0 - 2018-10-31
 
 * The import scanner now takes into account multiple [import options](http://lesscss.org/features/#import-atrules-feature-import-options).
